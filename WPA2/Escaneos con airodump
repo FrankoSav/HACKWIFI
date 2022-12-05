@@ -1,0 +1,15 @@
+#Escanear Red
+airodump-ng wlan0
+
+#Escanear filtrando por canal   
+airodump-ng -c [canal] wlan0
+
+#Escaneo de red especifica puede ser por filtrado de ESSID o BSSID
+airodump-ng -c 1 --essid NombreWifiEjemplo wlan0
+airodump-ng -c 1 --bssid MAC DEL ROUTER wlan0
+      
+#Escaneo + Guardado de paquetes, recomendado crear una carpeta y guardarlos ahi en este caso le asigno el nombre "Captura"
+airodump-ng -c [canal] -w Captura --bssid [MACDELROUTER] wlan0
+
+#Ver los paquetes guardados
+watch -n 1 du -hc Captura-01.cap
