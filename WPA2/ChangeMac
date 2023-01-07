@@ -22,7 +22,7 @@ macchanger --mac=00:20:91:DA:AF:91 wlan0
 ifconfig wlan0 down
 
 #Cambiar mac
-macchanger -br wlx5ca6e6fb5487
+macchanger -br wlan0
 
 #Encender interfaz
 ifconfig wlan0 up
